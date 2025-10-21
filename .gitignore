@@ -1,6 +1,9 @@
+# Ignore SQL Server database files
 *.mdf
 *.ldf
-*.ndf
 *.bak
-*.bacpac
-*.dacpac
+
+# Ignore temporary and system files
+*.tmp
+*.log
+~$*
