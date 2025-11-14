@@ -7,6 +7,4 @@
     //I have it set to "password"
     define("Conn_Password", "password");
     define("Conn_Database", "CIS440CarRentalProject");
-
 ?>
-
