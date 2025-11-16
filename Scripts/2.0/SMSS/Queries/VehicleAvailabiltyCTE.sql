@@ -1,3 +1,8 @@
+----- CTE
+---- The business purpose of this is to show how many vehicles are available for use by customers. 
+-----This supports our business requirement of showcasing availability.
+
+
 WITH VehicleAvailability AS (
     SELECT 
         VehicleID,
@@ -7,5 +12,4 @@ WITH VehicleAvailability AS (
         Status AS AvailabilityStatus
     FROM Vehicles
 )
-SELECT * 
-FROM VehicleAvailability;
+SELECT * FROM VehicleAvailability;
