@@ -1,8 +1,5 @@
 <?php 
-    echo "<!DOCTYPEHTML>\n";
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
+
     require_once "DatabaseConnection.php";
     $conn = "mysql:host=".Conn_Host.";dbname=".Conn_Database.";ccharset=utf8mb4";
     $options = [
@@ -39,19 +36,21 @@
                     $("#error").text("Please enter both a username and password.");
                     return;
                 }
+                
                 $.ajax({
                     type: "POST",
                     url: "CreateLoginHandler.php",
                     data: $("#createLoginForm").serialize(),
                     success: function(data){
                         alert("Login created successfully!");
-                        window.location.href = "index.html";
+                        window.location.href = "index.php";
                     },
                     error: function(data){
                         $("#error").text("Error creating login. Please try again." . data.responseText);
                     }
                 });
             });
+     
         </script>
     </body>
 

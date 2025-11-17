@@ -1,7 +1,4 @@
 <?php 
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
     require_once 'DatabaseConnection.php';
     $conn = "mysql:host=".Conn_Host.";dbname=".Conn_Database.";charset=utf8mb4";
     $options = [
@@ -9,7 +6,6 @@
         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
         \PDO::ATTR_EMULATE_PREPARES   => false,
     ];
-    $_POST = json_decode(file_get_contents("php://input"), true);
     $pdo = new PDO($conn, Conn_Username, Conn_Password,$options);
     $sql = "call CreateUser(?,?,?,?,?,?,?,?);";
     $stm = $pdo->prepare($sql);

@@ -10,8 +10,8 @@
     <body>
         <h1 style="text-align: center"> Welcome to the 440 Car Rental Project! </h1>
         <h3 style="text-align: center"> Please log in to continue. </h3>
-        <p style="text-align: center" id="enteruname"> </p>
-        <form id="loginform" method="post" style="text-align: center">
+        <p style="text-align: center;color:red" id="error"> </p>
+        <form id="loginform" action="login.php" method="post" style="text-align: center">
             Username: <input type="text" name="username"><br><br>
             Password: <input type="password" name="password"><br><br>
             <input type="submit" value="Login">
@@ -21,7 +21,7 @@
             $("#loginform").submit(function(e) {
                 e.preventDefault();
                 if ($(this).find('input[name="username"]').val() == "" || $(this).find('input[name="password"]').val() == "" ){
-                    $("#enteruname").text("Please enter both a username and password.");
+                    $("#error").text("Please enter both a username and password.");
                     return;
                 }
                 $.ajax({
@@ -29,7 +29,13 @@
                     url: "login.php",
                     data: $("#loginform").serialize(),
                     success: function(data){
+                        if (data == "") {
+                            $("#error").text("Invalid username or password.");
+                            return;
+                        }
+                        else {
                         window.location.href=data;
+                        }
                     }
                        
                 });

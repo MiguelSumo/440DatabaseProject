@@ -20,16 +20,16 @@
     if (password_verify($_POST['password'], $results['pword'])){;
         $_SESSION['userid'] = $results['uid'];
         $_SESSION['privilege'] = $results['priv'];
-        if ($_SESSION['privilege'] === 'p'){
-            echo "home.php";
+        if ($_SESSION['privilege'] === 'p' || $_SESSION['privilege'] === 'c'){
+            echo("home.php");
             die();
         }
         else if ($_SESSION['privilege'] === 'e'){
-            echo "data.php";
+            echo("data.php");
             die();
         }
     } else {
-        header("HTTP/1.1 304 Not Modified");
-        die("0");
+        echo "";
+        die();
     }
 ?>
