@@ -4,13 +4,30 @@ It includes schema scripts, sample data, and documentation for creating and test
 Contributors: Miguel Sumo, Nawal Diriye, Evan Buckingham, Omar Farouk
 ---
 
-        Database440Project/
-        │
-        ├── Scripts/
-        │ ├── Schema/ ← Contains CREATE TABLE scripts
-        │ ├── Data/ ← Contains INSERT scripts for initial data
-        │ └── Procedures/ ← Stored procedures (optional)
-        │
-        ├── Docs/ ← ERDs, Word files, and project instructions
-        ├── update_and_push.bat ← Automates Git commits/pushes
-        └── .gitignore ← Prevents .mdf/.ldf from being uploaded
+440DatabaseProject/
+├── app/                 # PHP web app (rename current 440/ here)
+│   ├── public/          # index.php, CSS, JS, assets
+│   ├── includes/        # shared PHP includes
+│   └── config/          # db connection, config files
+│
+├── db/                  # all database-related code
+│   ├── sqlserver/       # SSMS scripts
+│   │   ├── 01_schema/
+│   │   ├── 02_seed/
+│   │   ├── 03_views/
+│   │   └── 04_procs_triggers/
+│   └── mysql/           # MySQL versions if needed
+│       ├── 01_schema/
+│       ├── 02_seed/
+│       ├── 03_views/
+│       └── 04_procs_triggers/
+│
+├── docs/                # project documentation
+│   ├── erd/             # ERD images / PDFs
+│   ├── requirements/    # business rules, narrative
+│   └── deliverables/    # instructor rubrics, final write-up, etc.
+│
+├── .gitignore
+├── update_and_push.bat
+└── README.md
+
